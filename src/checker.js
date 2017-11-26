@@ -7,7 +7,7 @@ var router = express.Router();
 /* GET home page. */
 router.get('/check', function(req, res, next) {
     var filename = req.query.filename;
-    if(fs.existsSync("/home/environmentset/programming/JavaScript/png/uploads/"+filename)) {
+    if(fs.existsSync(__dirname.split("/").slice(0,__dirname.split("/").length-1).join("/")+"/uploads/"+filename)) {
         opn(`http://127.0.0.1:8080/test?filename=${filename}`);
         res.send("ok");
     } else {
@@ -25,7 +25,7 @@ router.get('/test', function(req, res, next) {
     history.pushState(stateObj, "page 3", "bar.html");
      var stateObj = { la: "lo" };
     history.pushState(stateObj, "page 4", "lo.html");
-    </script>${req.query.filename} \n ${fs.readFileSync("/home/environmentset/programming/JavaScript/png/uploads/"+req.query.filename, 'utf8')}`);
+    </script>${req.query.filename} \n ${fs.readFileSync(__dirname.split("/").slice(0,__dirname.split("/").length-1).join("/")+"/uploads/"+req.query.filename, 'utf8')}`);
 
     } catch (e)  {
         res.send("ERROR FILE");

@@ -15,7 +15,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/upload', function(req, res, next) {
-    res.sendFile("/home/environmentset/programming/JavaScript/png/routes/upload.html");
+    res.sendFile(__dirname.split("/").slice(0,__dirname.split("/").length-1).join("/")+"/routes/upload.html");
 });
 
 router.post('/upload',upload.single('file'), function (req,res) {
@@ -23,7 +23,7 @@ router.post('/upload',upload.single('file'), function (req,res) {
         res.send("Upload Success \n file : "+req.file.originalname);
     } else {
         res.send("Upload Failed");
-        fs.unlinkSync("/home/environmentset/programming/JavaScript/png/uploads/"+req.file.originalname);
+        fs.unlinkSync(__dirname.split("/").slice(0,__dirname.split("/").length-1).join("/")+"/uploads/"+req.file.originalname);
     }
 });
 
