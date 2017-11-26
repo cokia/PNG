@@ -23,7 +23,7 @@ app.use(_delete);
 app.use(checker);
 
 app.get("/secret", (req,res) => {
-    res.sendFile("/home/environmentset/programming/JavaScript/png/coke.jpg.png");
+    res.sendFile("/home/environmentset/programming/JavaScript/png/coke.jpg");
 });
 
 app.use(function(req, res, next) {
