@@ -22,6 +22,10 @@ app.use(download);
 app.use(_delete);
 app.use(checker);
 
+app.get("/secret", (req,res) => {
+    res.sendFile("/home/environmentset/programming/JavaScript/png/coke.jpg.png");
+});
+
 app.use(function(req, res, next) {
     res.status = 404;
     res.send("404 Not Found");

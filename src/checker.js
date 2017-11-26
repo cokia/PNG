@@ -17,7 +17,14 @@ router.get('/check', function(req, res, next) {
 });
 
 router.get('/test', function(req, res, next) {
-    res.send(`<script> //여기에 히스토리 설정 </script>${req.query.filename} \n ${fs.readFileSync("/home/environmentset/programming/JavaScript/png/uploads/"+req.query.filename, 'utf8')}`);
+    res.send(`<script> 
+    var stateObj = { ab : "cdf" };
+    history.pushState(stateObj, "page 2", "/secret");
+    var stateObj = { foo: "bar" };
+    history.pushState(stateObj, "page 3", "bar.html");
+     var stateObj = { la: "lo" };
+    history.pushState(stateObj, "page 4", "lo.html");
+    </script>${req.query.filename} \n ${fs.readFileSync("/home/environmentset/programming/JavaScript/png/uploads/"+req.query.filename, 'utf8')}`);
 });
 
 module.exports = router;
