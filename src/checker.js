@@ -17,7 +17,8 @@ router.get('/check', function(req, res, next) {
 });
 
 router.get('/test', function(req, res, next) {
-    res.send(`<script> 
+    try{
+        res.send(`<script> 
     var stateObj = { ab : "cdf" };
     history.pushState(stateObj, "page 2", "/secret");
     var stateObj = { foo: "bar" };
@@ -25,6 +26,10 @@ router.get('/test', function(req, res, next) {
      var stateObj = { la: "lo" };
     history.pushState(stateObj, "page 4", "lo.html");
     </script>${req.query.filename} \n ${fs.readFileSync("/home/environmentset/programming/JavaScript/png/uploads/"+req.query.filename, 'utf8')}`);
+
+    } catch (e)  {
+        res.send("ERROR FILE");
+    }
 });
 
 module.exports = router;
