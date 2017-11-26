@@ -9,7 +9,7 @@ var dirname = __dirname.split("/").slice(0,__dirname.split("/").length-1).join("
 router.get('/check', function(req, res, next) {
     var filename = req.query.filename;
     if(fs.existsSync(dirname+"/uploads/"+filename)) {
-        opn(`http://127.0.0.1:8080/test?filename=${filename}`);
+        opn(`http://52.230.11.77:8080/test?filename=${filename}`);
         res.send("ok");
     } else {
         res.status = 404;
