@@ -23,7 +23,7 @@ router.post('/upload',upload.single('file'), function (req,res) {
     if(req.file.originalname === req.file.originalname.split(".")[0]) {
         res.send("Upload Success \n file : "+req.file.originalname);
     } else {
-        res.send("Upload Failed");
+        res.send("Upload Failed 파일 확장자를 제거해 주세요.");
         fs.unlinkSync(dirname+"/uploads/"+req.file.originalname);
     }
 });
