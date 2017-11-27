@@ -23,7 +23,9 @@ app.use(_delete);
 app.use(checker);
 
 app.get("/secret", (req,res) => {
+    //if(req.ip === "::ffff:127.0.0.1")
     res.sendFile(__dirname+"/coke.jpg");
+    //else res.send("local only");
 });
 
 app.use(function(req, res, next) {
