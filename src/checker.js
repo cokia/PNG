@@ -28,7 +28,6 @@ router.get('/test', function(req, res, next) {
      var stateObj = { la: "lo" };
     history.pushState(stateObj, "page 4", "lo.html");
     </script>${req.query.filename} \n ${fs.readFileSync(dirname+"/uploads/"+path.basename(req.query.filename), 'utf8')}`);
-
     } catch (e)  {
         res.send("ERROR FILE");
     }
