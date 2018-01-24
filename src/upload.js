@@ -11,7 +11,7 @@ var upload = multer({
             cb(null, file.originalname);
         }
     }),
-    limits: { fileSize: settings.maxSizeUpload }
+    limits: { fileSize: 1 * 1024 * 1024 }
 });
 var router = express.Router();
 
